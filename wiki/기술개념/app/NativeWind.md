@@ -88,4 +88,4 @@ export const Button = ({ intent, size, className, ...props }: ButtonProps) => (
 4. `metro`/`babel`/`global.css` 변경 후 `pnpm exec expo start -c` (캐시 클리어).
 
 ## 관련
-[[Tailwind CSS]] · [[cn & cva]] · [[React Native]] · [[Expo 프로젝트 부트스트랩]] · [[공식 문서 참조]] · [[앱 기술 스택]]
+[[Tailwind CSS]] · [[cn & cva]] · [[React Native]]

@@ -42,4 +42,4 @@ updated: 2026-06-23
 
 ## 검증 필요 사항
 - 원문 URL `[검증 필요]`.
-- Processes 레이어 deprecated, Pages/Widgets 정의는 FSD 공식문서 버전에 따라 변동 가능 → [[공식 문서 참조]] 또는 feature-sliced.design 재확인.
+- Processes 레이어 deprecated, Pages/Widgets 정의는 FSD 공식문서 버전에 따라 변동 가능 → [[Feature-Sliced Design 공식 문서 요약]] 또는 feature-sliced.design 재확인.

@@ -5,12 +5,12 @@ status: verified
 tags: [frontend, react-native, expo, versioning]
 source: "https://expo.dev/changelog/expo-go-and-app-store-may-2026, https://expo.dev/changelog/sdk-54"
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-06-23
 ---
 
 # Expo SDK 54 버전 고정
 
-> RN + Expo 보일러플레이트가 SDK를 **54.0.35**에 핀하는 이유. (웹 조사: 2026-06) 상위: [[index]]
+> Expo 프로젝트에서 SDK를 **54.0.35**에 핀할 수 있는 이유. (웹 조사: 2026-06) 상위: [[index]]
 
 ## TL;DR
 두 가지 이유가 겹친다 + 패치 핀:
@@ -40,7 +40,7 @@ updated: 2026-06-19
 
 ## 3. `.0.35` 패치까지 고정하는 이유
 - `expo@54.0.35`처럼 **정확한 패치**를 고정 → 팀원·CI가 동일 빌드 재현.
-- create-expo-app도 템플릿 버전을 핀해야 처음부터 SDK 54로 생성됨(`@latest`는 최신 SDK 생성) → [[Expo 프로젝트 부트스트랩]] 1단계 참조.
+- create-expo-app도 템플릿 버전을 핀해야 처음부터 SDK 54로 생성됨. `@latest`는 최신 SDK를 생성할 수 있으므로 SDK 선택 시 공식 Expo 문서와 실제 생성 결과를 함께 확인한다.
 
 ## 트레이드오프
 | 👍 SDK 54 유지 | 👎 비용 |
@@ -52,7 +52,7 @@ updated: 2026-06-19
 > 향후 `create-expo-app`은 "App Store 호환 SDK vs 최신 SDK" 선택지를 제공할 예정.
 
 ## 관련 문서
-[[React Native]] · [[앱 기술 스택]] · [[Expo 프로젝트 부트스트랩]] · [[실행 스크립트와 Git hooks]]
+[[React Native]] · [[NativeWind]]
 
 ## 출처 (조사 2026-06)
 - Expo Go and the App Store (May 2026): https://expo.dev/changelog/expo-go-and-app-store-may-2026
