@@ -1,11 +1,11 @@
 ---
 type: concept
-platform: common
+platform: web
 status: verified
 tags: [frontend, react]
 source: https://react.dev/
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-06-23
 ---
 
 # React

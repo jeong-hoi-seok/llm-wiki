@@ -1,6 +1,11 @@
 ---
+type: concept
 platform: app
+status: verified
 tags: [app, styling, nativewind, cva]
+source: https://www.nativewind.dev/docs/getting-started/installation
+created: 2026-06-19
+updated: 2026-06-23
 ---
 
 # NativeWind 스타일링

@@ -1,6 +1,6 @@
 ---
 type: index
-updated: 2026-06-22
+updated: 2026-06-23
 ---
 
 # Log Index
@@ -14,5 +14,6 @@ updated: 2026-06-22
 - `index.md`와 운영 문서가 바뀐 작업은 날짜 로그에도 함께 기록한다.
 
 ## 날짜별 로그
-- [[2026-06-22]] — 프론트엔드 테스트 카테고리 추가, Front-End Performance Checklist ingest, 최적화 카테고리 추가, AI 퍼블리싱 기준 추가, 기술결정 문서 추가, AGENTS.md 표준 운영 문서화, 아키텍처 foundation 문서 추가, 문서 제목 한글화, wiki 폴더·파일명 직관화, 로그 구조 일자별 분리
+- [[2026-06-23]] — context 문서 frontmatter 추가, scope 규칙 구체화, 기술개념 web/app 폴더 분리, FSD 공식 KR docs raw ingest, FSD 폴더구조 재작성, 아키텍처 문서 축소
+- [[2026-06-22]] — 프론트엔드 테스트 카테고리 추가, Front-End Performance Checklist ingest, 최적화 카테고리 추가, AI 티 나는 디자인 기준 추가, 기술결정 문서 추가, AGENTS.md 표준 운영 문서화, 아키텍처 foundation 문서 추가, 문서 제목 한글화, wiki 폴더·파일명 직관화, 로그 구조 일자별 분리
 - [[2026-06-19]] — 위키 초기화, raw ingest, 카테고리 한글화, 주요 프론트엔드 문서 생성

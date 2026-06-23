@@ -1,10 +1,12 @@
 ---
 type: source-summary
-status: summarized
+scope: kakaopay-ceo-plus-fsd-migration
+platform: web
+status: deprecated
 tags: [frontend, architecture, fsd]
-source: raw/kakaopay/fsd-architecture.md
+source: "deleted raw/kakaopay/fsd-architecture.md"
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-06-23
 ---
 
 # 카카오페이 FSD 도입기 요약
@@ -13,7 +15,9 @@ updated: 2026-06-19
 - 제목: FSD 아키텍처 도입기
 - 작성자: 마쉬 (카카오페이 FE)
 - URL: `[검증 필요]` (tech.kakaopay.com 추정)
-- 원본: `raw/kakaopay/fsd-architecture.md`
+- 원본: `raw/kakaopay/fsd-architecture.md` 삭제됨 (2026-06-23)
+
+> 이 문서는 과거 ingest 이력 보존용이다. 현재 FSD 기준 문서는 [[Feature-Sliced Design 공식 문서 요약]]과 [[FSD 폴더구조]]를 우선한다.
 
 ## 핵심 요약
 사장님 플러스(ceo-plus) 레포가 역할 중심 디렉토리(components/apis/pages…)로 시작 → 서비스 확장(혜택·쿠폰·멤버십)으로 기능별 그룹핑 추가 → **코드 위치 모호·사이드이펙트·기존 작업자 의존** 문제. FDD 시도 실패 후 **FSD 도입**으로 재사용 레벨을 코드 구조로 강제. 운영 중 서비스라 **상향식(bottom-up) 점진 마이그레이션**.

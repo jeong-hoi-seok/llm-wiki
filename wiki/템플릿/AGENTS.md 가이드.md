@@ -113,7 +113,6 @@ platform: web   # web | app
 ​```
 ✅ FSD 폴더구조, 코드 품질, 네이밍 컨벤션  [공통]
 ✅ Next.js, Tailwind CSS, shadcn-ui, 번들링              [웹]
-✅ cn & cva                                                [웹·앱]
 ❌ React Native, NativeWind, Expo SDK 54 버전 고정   [앱]
 ​```
 

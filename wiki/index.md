@@ -1,6 +1,6 @@
 ---
 type: index
-updated: 2026-06-22
+updated: 2026-06-23
 ---
 
 # Index (목차)
@@ -11,10 +11,7 @@ updated: 2026-06-22
 
 ## 아키텍처
 
-- [[프론트엔드 아키텍처 개요]] `[공통]` — 프론트엔드 아키텍처의 목적, 범위, 프로젝트 docs와의 역할 분리
-- [[레이어드 아키텍처]] `[공통]` — 책임과 의존 방향을 레이어로 나누는 기본 사고
-- [[모듈러 아키텍처]] `[공통]` — 기능·도메인 단위 응집도와 public API 기준
-- [[FSD 폴더구조]] `[공통]` — layer·slice·segment로 구조화하는 선택 가능한 아키텍처 패턴
+- [[FSD 폴더구조]] `[공통]` — layer·slice·segment, import rule, public API로 구조화하는 선택 가능한 아키텍처 패턴
 - *(예정)* State Architecture / Data Fetching Architecture / Routing Architecture / Monorepo Architecture …
 
 ## 개발원칙
@@ -41,9 +38,12 @@ updated: 2026-06-22
 
 ## 기술개념
 
-- **프레임워크**: [[React]] `[공통]` · [[Next.js]] `[웹]` · [[React Native]] `[앱]`
-- **스타일**: [[Tailwind CSS]] `[웹]` · [[NativeWind]] `[앱]` · [[cn & cva]] `[웹·앱]`
-- **번들링**: [[번들링]] `[웹]` · [[트리 쉐이킹]] `[웹]` · [[코드 스플리팅]] `[웹]` · [[HMR]] `[웹]`
+- `기술개념/web/` — 브라우저·DOM·Next.js·Tailwind·웹 번들러 중심 개념
+  - **프레임워크**: [[React]] · [[Next.js]] (App Router 권장안, Pages Router 차이, 12~16.2 변화)
+  - **스타일**: [[Tailwind CSS]] · [[cn & cva]]
+  - **번들링**: [[번들링]] · [[트리 쉐이킹]] · [[코드 스플리팅]] · [[HMR]]
+- `기술개념/app/` — React Native·Expo·NativeWind·네이티브 런타임 중심 개념
+  - [[React Native]] · [[NativeWind]]
 - *(예정)* Layer / Slice / Segment — FSD 세부 개념 분리 검토
 
 ## 컨벤션 (Conventions)
@@ -56,7 +56,7 @@ updated: 2026-06-22
 
 ## 디자인시스템
 
-- [[AI 티 안 나는 퍼블리싱 기준]] `[공통]` — 디자인 없는 상태에서 AI가 반복 SaaS 패턴과 의미 없는 장식을 피하는 기준
+- [[AI 티 나는 디자인의 기준]] `[공통]` — AI가 만든 티가 많이 나는 디자인 패턴
 - [[헤드리스 컴포넌트]] `[공통]` — 로직·접근성만 공통, UI는 위임
 - [[shadcn-ui]] `[웹]` — Radix/Base UI(헤드리스) + Tailwind 복붙 소유 모델
 - [[Base UI]] `[웹]` — 접근성 있는 unstyled React primitive
@@ -79,7 +79,7 @@ updated: 2026-06-22
 
 - [[RN Expo 보일러플레이트 요약]] `[앱]` — RN + Expo 보일러플레이트 (SDK 54)
   - 세부: [[앱 기술 스택]] · [[Expo 프로젝트 부트스트랩]] · [[실행 스크립트와 Git hooks]] · [[공식 문서 참조]]
-- [[카카오페이 FSD 도입기 요약]] `[웹]` — 카카오페이 FSD 도입기
+- [[Feature-Sliced Design 공식 문서 요약]] `[공통]` — FSD 공식 한국어 문서 요약
 - [[카카오페이 공통 컴포넌트 요약]] `[웹]` — 카카오페이 공통 컴포넌트 생애주기
 - 토스 Frontend Fundamentals `[웹]`:
   - [[토스 코드 품질 요약]] (좋은 코드 4기준) · [[토스 접근성 요약]] (접근성) · [[토스 번들링 요약]] (번들링) · [[토스 디버깅 요약]] (디버깅)

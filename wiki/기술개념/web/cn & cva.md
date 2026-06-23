@@ -1,11 +1,11 @@
 ---
 type: concept
-platform: [web, app]
+platform: web
 status: verified
 tags: [frontend, styling, tailwind, cva]
 source: https://cva.style/, https://github.com/dcastil/tailwind-merge
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-06-23
 ---
 
 # cn & cva (클래스 유틸리티)
