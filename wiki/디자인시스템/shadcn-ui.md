@@ -8,7 +8,7 @@ source:
   - "https://ui.shadcn.com/docs/changelog/2026-01-base-ui"
   - "https://base-ui.com/react/overview/community"
 created: 2026-06-19
-updated: 2026-06-22
+updated: 2026-06-23
 ---
 
 # shadcn/ui
@@ -34,6 +34,27 @@ shadcn/ui:        npx shadcn add button → src/에 코드 복사 → 내가 소
 | **CVA** (class-variance-authority) | variant → className |
 | **tailwind-merge + clsx** (`cn`) | 클래스 충돌 병합 |
 > 이 스택은 RN의 [[NativeWind]] variant 패턴(CVA + `cn`)과 **동일** — 웹은 Tailwind, RN은 NativeWind.
+
+## components.json — CLI 설정 핵심
+`npx shadcn add`가 코드를 **어디에·어떻게** 복사할지 정하는 설정 파일. CLI 쓸 때만 필요(선택).
+| 키 | 역할 |
+|---|---|
+| `style` | 컴포넌트 외형. 현재 `new-york`(구 `default`는 deprecated) |
+| `aliases` | 생성 코드 위치·import 재작성 — `components`/`ui`/`lib`/`hooks`/`utils` 경로 매핑 |
+| `tailwind.baseColor` | 기본 테마 토큰 생성 기준색 |
+| `tailwind.cssVariables` | CSS 변수 테마 vs 인라인 Tailwind 유틸 전환 |
+| `rsc` | React Server Components 지원 여부 |
+| `tsx` | TS / JS 컴포넌트 선택 |
+
+## registry — 컴포넌트 공급원
+CLI는 **registry**에서 컴포넌트를 가져온다. 기본 shadcn registry 외에 **여러 registry**(사내 private·인증 포함) 등록 가능.
+```
+npx shadcn@latest add @namespace/resource-name   # 네임스페이스로 출처 지정
+```
+→ 팀 자체 디자인 시스템을 registry로 배포하면 같은 CLI 흐름으로 사내 컴포넌트 복사 가능.
+
+## eject — primitive 의존 떼기
+2026-05부터 `eject` 지원. 헤드리스 primitive(Radix/Base UI) 의존을 걷어내고 동작 코드까지 프로젝트로 내려 **완전 소유**한다. "코드 소유" 모델의 끝판 — 단 유지보수 부담도 전부 팀이 진다.
 
 ## Base UI 기반
 shadcn-ui는 Radix 기반뿐 아니라 Base UI 기반 컴포넌트도 제공한다. 새 프로젝트에서 primitive 선택지가 열려 있다면 [[shadcn-ui와 Base UI 선택 기준]]을 먼저 본다.
@@ -62,5 +83,7 @@ Base UI 기반은 다음 상황에 잘 맞는다.
 
 ## 출처
 - shadcn/ui: https://ui.shadcn.com/docs (확인: 2026-06-22)
+- shadcn/ui components.json: https://ui.shadcn.com/docs/components-json (확인: 2026-06-23)
 - shadcn/ui Base UI changelog: https://ui.shadcn.com/docs/changelog/2026-01-base-ui (확인: 2026-06-22)
+- shadcn/ui eject changelog: https://ui.shadcn.com/docs/changelog/2026-05-shadcn-eject (확인: 2026-06-23)
 - Base UI shadcn/ui integration: https://base-ui.com/react/overview/community (확인: 2026-06-22)
