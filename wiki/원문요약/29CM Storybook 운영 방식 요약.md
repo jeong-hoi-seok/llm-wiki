@@ -23,10 +23,7 @@ updated: 2026-06-22
 - Storybook은 CDD, 신규 입사자 온보딩, 디자이너와의 커뮤니케이션에 도움을 준다.
 
 ## 위키 반영
-- [[컴포넌트와 Story를 함께 관리하기]]
-- [[Storybook에서 API 상태 표현하기]]
-- [[PR Preview 기반 UI 리뷰]]
-- [[Component-Driven Development]]
+- [[Storybook 기반 컴포넌트 개발]] — CDD, Story 관리, API 상태 표현, PR Preview 리뷰
 
 ## 출처
 - 29CM, 당신2 9하던 Storybook: https://medium.com/29cm/%EB%8B%B9%EC%8B%A02-9%ED%95%98%EB%8D%98-storybook-a6b10a62e825

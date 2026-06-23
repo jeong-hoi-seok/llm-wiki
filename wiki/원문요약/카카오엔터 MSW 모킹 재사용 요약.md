@@ -24,9 +24,7 @@ updated: 2026-06-22
 - 핵심은 “Storybook에서 정의한 API 시나리오를 Jest 테스트에서 다시 쓰되, 테스트 본문에는 모킹 준비 코드가 보이지 않게 하는 것”이다.
 
 ## 위키 반영
-- [[Storybook과 테스트에서 MSW 핸들러 재사용하기]]
-- [[API Fixture 중복 제거]]
-- [[테스트 시나리오를 자산으로 관리하기]]
+- [[테스트 Mock·Fixture 재사용]] — handler 재사용, fixture 중복 제거, 시나리오 자산화
 
 ## 출처
 - 카카오엔터테인먼트 테크블로그, MSW 모킹 코드 재사용하기 feat. Storybook, Jest: https://tech.kakaoent.com/front-end/2022/220317-integrate-msw-storybook-jest/
