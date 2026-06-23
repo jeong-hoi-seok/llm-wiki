@@ -53,6 +53,7 @@ updated: 2026-06-23
 - [[네이밍 컨벤션]] — 변수·함수·파일 네이밍 규칙
 - [[커밋 컨벤션]] — `type(scope): subject` 커밋 메시지 규칙
 - [[MR PR 작성 가이드]] — GitLab MR / GitHub PR 작성 절차
+- [[프로젝트 맥락 위키 작성 가이드]] — 개별 프로젝트 root에 맥락 위키 `wiki/`(decisions·worklog) 만드는 방법 (Obsidian 외부용)
 
 ## 디자인시스템
 
