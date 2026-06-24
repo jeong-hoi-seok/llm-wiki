@@ -25,9 +25,9 @@ updated: 2026-06-23
 - React 자체(컴포넌트·훅·재조정)는 동일 → 학습 전이 쉬움.
 
 ## Expo
-- RN 개발·빌드·배포 툴체인. SDK가 카메라·알림 등 네이티브 모듈을 묶어 제공.
-- **Expo Go**: 스토어의 샌드박스 앱 — 코드를 즉시 실행(네이티브 빌드 없이). 교육·빠른 시작용.
-- **Development Build / EAS Build**: 커스텀 네이티브 모듈·프로덕션용.
+- [[Expo]]는 RN 개발·빌드·배포 툴체인이다. SDK가 카메라·알림 등 네이티브 모듈을 묶어 제공하고, CLI·Router·CNG·EAS를 독립적으로 도입할 수 있다.
+- **Expo Go**: 교육·빠른 시작용 playground.
+- **Development Build / EAS Build**: 실제 앱 개발·배포 기준.
 
 ## New Architecture
 - RN은 New Architecture(Fabric·TurboModules)로 전환 중.
@@ -42,7 +42,7 @@ Expo SDK 54.0.35를 핀하는 이유(Expo Go·App Store·레거시 아키텍처)
 - 구조: 앱 규모가 커지면 [[FSD 폴더구조]] 같은 레이어·Public API 기준을 검토한다.
 
 ## 관련 문서
-[[React]] · [[NativeWind]] · [[Expo SDK 54 버전 고정]] · [[FSD 폴더구조]]
+[[React]] · [[Expo]] · [[NativeWind]] · [[Expo SDK 54 버전 고정]] · [[FSD 폴더구조]]
 
 ## 출처
 - React Native: https://reactnative.dev/ · Expo: https://docs.expo.dev/

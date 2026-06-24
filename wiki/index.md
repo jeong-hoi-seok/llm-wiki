@@ -43,7 +43,7 @@ updated: 2026-06-24
   - **스타일**: [[Tailwind CSS]] · [[cn & cva]]
   - **번들링**: [[번들링]] · [[트리 쉐이킹]] · [[코드 스플리팅]] · [[HMR]]
 - `기술개념/app/` — React Native·Expo·NativeWind·네이티브 런타임 중심 개념
-  - [[React Native]] · [[NativeWind]]
+  - [[React Native]] · [[Expo]] · [[NativeWind]]
 - *(예정)* Layer / Slice / Segment — FSD 세부 개념 분리 검토
 
 ## 컨벤션 (Conventions)
