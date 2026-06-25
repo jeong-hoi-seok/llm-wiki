@@ -150,11 +150,13 @@ LLM이 읽기 좋게 재구성한 지식층이다.
 `wiki/` 문서나 운영 규칙을 수정하면:
 
 1. `wiki/컨벤션/위키 버전 관리.md`를 읽는다.
-2. 변경 범위에 맞는 `minor` 또는 `patch` bump를 결정한다.
-3. `wiki/index.md` frontmatter의 `version`과 `updated`를 갱신한다.
-4. 해당 날짜의 `wiki/log/YYYY-MM-DD.md`에 이전 버전, 새 버전, bump 이유를 기록한다.
-5. `wiki/log.md` 날짜별 요약도 갱신한다.
-6. 버전 변경 커밋을 만든 뒤 `vX.Y.Z` 형식의 git tag와 GitHub Release를 생성한다.
+2. GitHub Release 최신 tag와 `wiki/index.md`의 `version`이 맞는지 확인한다.
+3. 맞지 않으면 `git fetch origin main --tags`로 원격 정보를 최신화하고, 필요 시 `git pull --ff-only origin main`으로 로컬을 갱신한 뒤 다시 확인한다.
+4. 변경 범위에 맞는 `minor` 또는 `patch` bump를 결정한다.
+5. `wiki/index.md` frontmatter의 `version`과 `updated`를 갱신한다.
+6. 해당 날짜의 `wiki/log/YYYY-MM-DD.md`에 이전 버전, 새 버전, bump 이유를 기록한다.
+7. `wiki/log.md` 날짜별 요약도 갱신한다.
+8. 버전 변경 커밋을 만든 뒤 `vX.Y.Z` 형식의 git tag와 GitHub Release를 생성한다.
 
 ### Commit
 
