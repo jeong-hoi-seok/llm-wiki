@@ -1,23 +1,25 @@
 ---
-type: template
 platform: common
+scope: agents-md-authoring
 status: verified
+tags: [common, convention, agent, wiki]
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-06-25
 ---
 
-# AGENTS.md 템플릿
+# AGENTS.md 작성 가이드
 
-신규 프로젝트에서 AI가 위키를 실제로 읽고 적용하는지 검증하는 구조 포함.
+신규 프로젝트에서 AI가 위키를 실제로 읽고 적용하는지 검증하는 구조를 포함한 AGENTS.md 작성 기준.
 상위: [[index]]
 
 ---
 
 ## 핵심 원칙
 
-AGENTS.md에는 두 가지가 반드시 있어야 한다:
+AGENTS.md에는 세 가지가 반드시 있어야 한다:
 1. **명령형 읽기** — "참조한다" 아닌 "직접 열어서 읽는다"
 2. **검증 장치** — AI가 읽었는지 추적할 수 있는 규칙
+3. **경로 간접화** — 개인 절대경로가 아니라 환경변수와 symlink로 공통 위키 위치를 찾는다
 
 ---
 
@@ -26,6 +28,17 @@ AGENTS.md에는 두 가지가 반드시 있어야 한다:
 > **기존 AGENTS.md가 있는 경우** — 아래 `Wiki Baseline` 섹션만 기존 파일에 삽입한다. 기존 내용은 건드리지 않는다.
 >
 > **AGENTS.md가 없는 경우** — 아래 전체 템플릿으로 새로 작성한다.
+
+### 팀원 로컬 설정
+
+공통 위키는 각자 원하는 위치에 clone한다. 대신 AGENTS.md에서는 아래 두 경로 중 하나로 찾는다.
+
+```sh
+export FRONTEND_LLM_WIKI_ROOT="$HOME/path/to/llm-wiki"
+ln -sfn "$FRONTEND_LLM_WIKI_ROOT" "$HOME/.frontend-llm-wiki"
+```
+
+환경변수는 유연하고, symlink는 에이전트가 환경변수를 받지 못할 때 fallback 역할을 한다.
 
 ### 삽입 전용 블록 (기존 파일에 추가할 내용)
 
@@ -36,10 +49,15 @@ AGENTS.md에는 두 가지가 반드시 있어야 한다:
 
 > 아래 파일을 반드시 직접 열어서 읽는다. 경로만 인지하는 것으로 갈음하지 않는다.
 
-1. 아래 경로의 파일을 열어 읽는다:
-   /Users/hoi-seok/Documents/Obsidian Vault/frontend-llm-wiki/wiki/index.md
+1. 공통 위키 루트를 다음 순서로 찾는다:
+   - `FRONTEND_LLM_WIKI_ROOT`
+   - 없으면 `$HOME/.frontend-llm-wiki`
+   - 둘 다 없거나 `wiki/index.md`가 없으면 위키 경로 설정이 필요하다고 말하고 중단한다.
 
-2. 이 프로젝트의 platform 값에 맞는 문서만 추가로 읽는다 (platform은 이 파일 상단 또는 Project Identity 섹션 참고).
+2. 찾은 위키 루트의 `wiki/index.md`를 직접 열어 읽는다:
+   `$WIKI_ROOT/wiki/index.md`
+
+3. 이 프로젝트의 platform 값에 맞는 문서만 추가로 읽는다 (platform은 이 파일 상단 또는 Project Identity 섹션 참고).
 
 | 위키 태그 | `web` | `app` |
 |---|---|---|
@@ -48,7 +66,7 @@ AGENTS.md에는 두 가지가 반드시 있어야 한다:
 | `[앱]` | ❌ | ✅ |
 | `[웹·앱]` | ✅ | ✅ |
 
-3. 작업 주제와 연결된 문서를 index에서 찾아 추가로 읽는다.
+4. 작업 주제와 연결된 문서를 index에서 찾아 추가로 읽는다.
 
 ### 응답 규칙 (검증용)
 
@@ -94,10 +112,15 @@ platform: web   # web | app
 
 > 아래 파일을 반드시 직접 열어서 읽는다. 경로만 인지하는 것으로 갈음하지 않는다.
 
-1. 아래 경로의 파일을 열어 읽는다:
-   /Users/hoi-seok/Documents/Obsidian Vault/frontend-llm-wiki/wiki/index.md
+1. 공통 위키 루트를 다음 순서로 찾는다:
+   - `FRONTEND_LLM_WIKI_ROOT`
+   - 없으면 `$HOME/.frontend-llm-wiki`
+   - 둘 다 없거나 `wiki/index.md`가 없으면 위키 경로 설정이 필요하다고 말하고 중단한다.
 
-2. 위 `platform` 값에 맞는 문서만 추가로 읽는다:
+2. 찾은 위키 루트의 `wiki/index.md`를 직접 열어 읽는다:
+   `$WIKI_ROOT/wiki/index.md`
+
+3. 위 `platform` 값에 맞는 문서만 추가로 읽는다:
 
 | 위키 태그 | `web` | `app` |
 |---|---|---|
@@ -106,7 +129,7 @@ platform: web   # web | app
 | `[앱]` | ❌ | ✅ |
 | `[웹·앱]` | ✅ | ✅ |
 
-3. 작업 주제와 연결된 문서를 index에서 찾아 추가로 읽는다.
+4. 작업 주제와 연결된 문서를 index에서 찾아 추가로 읽는다.
 
 ### 참조 예시 (`platform: web`)
 
@@ -166,7 +189,7 @@ Cursor 채팅창에서 AI가 실제로 파일을 열었는지 확인.
 | "참조한다"로 작성 | AI가 경로만 인지, 파일 미열람 | "직접 열어서 읽는다"로 변경 |
 | wiki-ref 규칙 없음 | 읽었는지 추적 불가 | 응답 규칙 섹션 추가 |
 | platform 미선언 | 앱/웹 필터 미적용 | `platform: web` or `app` 명시 |
-| 절대경로 하드코딩만 | 다른 머신에서 동작 안 함 | 팀 공유 시 경로 변수화 검토 |
+| 절대경로 하드코딩만 | 다른 머신에서 동작 안 함 | `FRONTEND_LLM_WIKI_ROOT` + `$HOME/.frontend-llm-wiki` 사용 |
 
 ## 관련
 [[index]] · [[커밋 컨벤션]] · [[MR PR 작성 가이드]]
