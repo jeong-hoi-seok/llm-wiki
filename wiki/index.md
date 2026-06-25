@@ -1,6 +1,6 @@
 ---
 type: index
-version: "0.5.3"
+version: "0.6.0"
 updated: 2026-06-25
 ---
 
@@ -45,7 +45,10 @@ updated: 2026-06-25
   - **스타일**: [[Tailwind CSS]] · [[cn & cva]]
   - **번들링**: [[번들링]] · [[트리 쉐이킹]] · [[코드 스플리팅]] · [[HMR]]
 - `기술개념/app/` — React Native·Expo·NativeWind·네이티브 런타임 중심 개념
-  - [[React Native]] · [[Expo]] · [[NativeWind]]
+  - **프레임워크·스타일**: [[React Native]] · [[Expo]] · [[NativeWind]]
+  - **런타임·빌드**: [[Metro]] (번들러) · [[Hermes]] (JS 엔진)
+  - **네이티브 연동**: [[네이티브 모듈과 Config Plugins]]
+  - **애니메이션·제스처**: [[Reanimated와 Gesture Handler]]
 - *(예정)* Layer / Slice / Segment — FSD 세부 개념 분리 검토
 
 ## 컨벤션 (Conventions)
