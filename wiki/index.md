@@ -1,7 +1,7 @@
 ---
 type: index
-version: "0.6.0"
-updated: 2026-06-25
+version: "0.6.1"
+updated: 2026-06-26
 ---
 
 # Index (목차)
@@ -60,7 +60,7 @@ updated: 2026-06-25
 - [[MR PR 작성 가이드]] — GitLab MR / GitHub PR 작성 절차
 - [[프로젝트 맥락 위키 작성 가이드]] — 개별 프로젝트에서 `docs/wiki/`(summaries·decisions·worklog)와 `docs/raw/`를 나누는 방법 (Obsidian 외부용)
 - [[위키 버전 관리]] — `wiki/index.md`의 `version` 값을 올리는 기준과 절차
-- [[AGENTS.md 작성 가이드]] — 신규 프로젝트 AGENTS.md 작성·검증 기준과 공통 위키 경로 resolver
+- [[AGENTS.md 작성 가이드]] — 신규 프로젝트 AGENTS.md 작성·검증 기준과 `$HOME/.llm-wiki` 위키 부트스트랩
 
 ## 디자인시스템
 

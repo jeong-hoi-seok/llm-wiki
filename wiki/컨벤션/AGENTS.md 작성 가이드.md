@@ -4,7 +4,7 @@ scope: agents-md-authoring
 status: verified
 tags: [common, convention, agent, wiki]
 created: 2026-06-19
-updated: 2026-06-25
+updated: 2026-06-26
 ---
 
 # AGENTS.md 작성 가이드
@@ -20,7 +20,7 @@ AGENTS.md에는 네 가지가 반드시 있어야 한다:
 1. **파일명 고정** — 파일명은 반드시 대문자 `AGENTS.md`로 쓴다. `agent.md`, `agents.md`, `Agent.md`처럼 소문자로 쓰지 않는다.
 2. **명령형 읽기** — "참조한다" 아닌 "직접 열어서 읽는다"
 3. **검증 장치** — AI가 읽었는지 추적할 수 있는 규칙
-4. **경로 간접화** — 개인 절대경로가 아니라 환경변수와 symlink로 공통 위키 위치를 찾는다
+4. **위키 부트스트랩** — 공통 위키는 프로젝트 밖 `$HOME/.llm-wiki` 한 곳에서 관리한다. 없으면 머신당 1회 clone하고, 홈을 푼 절대경로로 연다
 
 ---
 
@@ -32,35 +32,46 @@ AGENTS.md에는 네 가지가 반드시 있어야 한다:
 >
 > **파일명 주의** — 에이전트가 소문자 파일명을 놓치는 경우가 있으므로 프로젝트 root 파일명은 반드시 `AGENTS.md`로 만든다.
 
-### 팀원 로컬 설정
+### 공통 위키 위치
 
-공통 위키는 각자 원하는 위치에 clone한다. 대신 AGENTS.md에서는 아래 두 경로 중 하나로 찾는다.
+공통 위키는 이 프로젝트(또는 어떤 프로젝트) 안에 두지 않는다. 홈 디렉터리 아래 `.llm-wiki` 한 곳에서만 관리한다.
 
-```sh
-export FRONTEND_LLM_WIKI_ROOT="$HOME/path/to/llm-wiki"
-ln -sfn "$FRONTEND_LLM_WIKI_ROOT" "$HOME/.frontend-llm-wiki"
-```
+- 위키 루트 = `<HOME 절대경로>/.llm-wiki`
+- 머신에 없으면 작업 시작 시 1회 `git clone`, 있으면 `git pull --ff-only`로 최신화한다.
 
-환경변수는 유연하고, symlink는 에이전트가 환경변수를 받지 못할 때 fallback 역할을 한다.
+머신마다 홈 경로가 다르고 셸도 제각각이라 절대경로를 미리 박을 수 없다. 그래서 AGENTS.md에는 경로를 하드코딩하지 않고 **"홈을 먼저 푼 뒤 `.llm-wiki`를 붙인다"** 는 절차를 적는다. 푼 절대경로를 읽기 도구에 넘기고, `$HOME`·`~`를 그대로 넘기지 않는다.
 
 ### 삽입 전용 블록 (기존 파일에 추가할 내용)
 
 ```md
 ## Wiki Baseline
 
-### 읽기 순서 (작업 시작 전 필수)
+### 위키 부트스트랩 (작업 시작 전 필수)
+
+공통 위키는 이 프로젝트 안에 두지 않는다. 홈 디렉터리 아래 `.llm-wiki` 한 곳에서만 관리한다.
+
+1. 먼저 홈 절대경로를 구한다. 셸 종류에 맞게:
+   - bash / zsh / Git Bash / WSL: `echo "$HOME"`
+   - PowerShell: `echo $HOME`
+   - cmd: `echo %USERPROFILE%`
+
+   구한 값을 `HOME_DIR`로 삼고, 위키 루트 = `HOME_DIR` + `/.llm-wiki` 로 정한다.
+
+2. 위키 루트에 `wiki/index.md`가 없으면 머신당 1회 clone한다:
+   `git clone https://github.com/jeong-hoi-seok/llm-wiki.git "<위키 루트>"`
+   이미 있으면 최신화한다:
+   `git -C "<위키 루트>" pull --ff-only`
+
+3. clone/pull이 실패하면(네트워크·권한) 사실을 말하고 중단한다.
+
+### 읽기 순서
 
 > 아래 파일을 반드시 직접 열어서 읽는다. 경로만 인지하는 것으로 갈음하지 않는다.
 
-1. 공통 위키 루트를 다음 순서로 찾는다:
-   - `FRONTEND_LLM_WIKI_ROOT`
-   - 없으면 `$HOME/.frontend-llm-wiki`
-   - 둘 다 없거나 `wiki/index.md`가 없으면 위키 경로 설정이 필요하다고 말하고 중단한다.
+1. 부트스트랩 1단계에서 구한 절대경로로 `<위키 루트>/wiki/index.md`를 직접 연다.
+   (`$HOME`·`~`를 그대로 읽기 도구에 넘기지 말고, 푼 절대경로를 쓴다.)
 
-2. 찾은 위키 루트의 `wiki/index.md`를 직접 열어 읽는다:
-   `$WIKI_ROOT/wiki/index.md`
-
-3. 이 프로젝트의 platform 값에 맞는 문서만 추가로 읽는다 (platform은 이 파일 상단 또는 Project Identity 섹션 참고).
+2. 이 프로젝트의 platform 값에 맞는 문서만 추가로 읽는다 (platform은 이 파일 상단 또는 Project Identity 섹션 참고).
 
 | 위키 태그 | `web` | `app` |
 |---|---|---|
@@ -69,14 +80,14 @@ ln -sfn "$FRONTEND_LLM_WIKI_ROOT" "$HOME/.frontend-llm-wiki"
 | `[앱]` | ❌ | ✅ |
 | `[웹·앱]` | ✅ | ✅ |
 
-4. 작업 주제와 연결된 문서를 index에서 찾아 추가로 읽는다.
+3. 작업 주제와 연결된 문서를 index에서 찾아 추가로 읽는다.
 
 ### 응답 규칙 (검증용)
 
 작업 결과물 하단에 참고한 위키 문서를 반드시 명시한다:
 
 ​```
-<!-- wiki-ref: 컨벤션/커밋 컨벤션.md, 원칙/가독성.md -->
+<!-- wiki-ref: 컨벤션/커밋 컨벤션.md, 개발원칙/가독성.md -->
 ​```
 
 명시하지 않은 경우, 위키를 읽지 않은 것으로 간주한다.
@@ -111,19 +122,32 @@ platform: web   # web | app
 
 ## Wiki Baseline
 
-### 읽기 순서 (작업 시작 전 필수)
+### 위키 부트스트랩 (작업 시작 전 필수)
+
+공통 위키는 이 프로젝트 안에 두지 않는다. 홈 디렉터리 아래 `.llm-wiki` 한 곳에서만 관리한다.
+
+1. 먼저 홈 절대경로를 구한다. 셸 종류에 맞게:
+   - bash / zsh / Git Bash / WSL: `echo "$HOME"`
+   - PowerShell: `echo $HOME`
+   - cmd: `echo %USERPROFILE%`
+
+   구한 값을 `HOME_DIR`로 삼고, 위키 루트 = `HOME_DIR` + `/.llm-wiki` 로 정한다.
+
+2. 위키 루트에 `wiki/index.md`가 없으면 머신당 1회 clone한다:
+   `git clone https://github.com/jeong-hoi-seok/llm-wiki.git "<위키 루트>"`
+   이미 있으면 최신화한다:
+   `git -C "<위키 루트>" pull --ff-only`
+
+3. clone/pull이 실패하면(네트워크·권한) 사실을 말하고 중단한다.
+
+### 읽기 순서
 
 > 아래 파일을 반드시 직접 열어서 읽는다. 경로만 인지하는 것으로 갈음하지 않는다.
 
-1. 공통 위키 루트를 다음 순서로 찾는다:
-   - `FRONTEND_LLM_WIKI_ROOT`
-   - 없으면 `$HOME/.frontend-llm-wiki`
-   - 둘 다 없거나 `wiki/index.md`가 없으면 위키 경로 설정이 필요하다고 말하고 중단한다.
+1. 부트스트랩 1단계에서 구한 절대경로로 `<위키 루트>/wiki/index.md`를 직접 연다.
+   (`$HOME`·`~`를 그대로 읽기 도구에 넘기지 말고, 푼 절대경로를 쓴다.)
 
-2. 찾은 위키 루트의 `wiki/index.md`를 직접 열어 읽는다:
-   `$WIKI_ROOT/wiki/index.md`
-
-3. 위 `platform` 값에 맞는 문서만 추가로 읽는다:
+2. 위 `platform` 값에 맞는 문서만 추가로 읽는다:
 
 | 위키 태그 | `web` | `app` |
 |---|---|---|
@@ -132,7 +156,7 @@ platform: web   # web | app
 | `[앱]` | ❌ | ✅ |
 | `[웹·앱]` | ✅ | ✅ |
 
-4. 작업 주제와 연결된 문서를 index에서 찾아 추가로 읽는다.
+3. 작업 주제와 연결된 문서를 index에서 찾아 추가로 읽는다.
 
 ### 참조 예시 (`platform: web`)
 
@@ -147,7 +171,7 @@ platform: web   # web | app
 작업 결과물 하단에 참고한 위키 문서를 반드시 명시한다:
 
 ​```
-<!-- wiki-ref: 컨벤션/커밋 컨벤션.md, 원칙/가독성.md -->
+<!-- wiki-ref: 컨벤션/커밋 컨벤션.md, 개발원칙/가독성.md -->
 ​```
 
 명시하지 않은 경우, 위키를 읽지 않은 것으로 간주한다.
@@ -192,7 +216,9 @@ Cursor 채팅창에서 AI가 실제로 파일을 열었는지 확인.
 | "참조한다"로 작성 | AI가 경로만 인지, 파일 미열람 | "직접 열어서 읽는다"로 변경 |
 | wiki-ref 규칙 없음 | 읽었는지 추적 불가 | 응답 규칙 섹션 추가 |
 | platform 미선언 | 앱/웹 필터 미적용 | `platform: web` or `app` 명시 |
-| 절대경로 하드코딩만 | 다른 머신에서 동작 안 함 | `FRONTEND_LLM_WIKI_ROOT` + `$HOME/.frontend-llm-wiki` 사용 |
+| 절대경로 하드코딩 | 다른 머신에서 동작 안 함 | 홈을 푼 뒤 `/.llm-wiki`를 붙여 절대경로로 연다 |
+| 위키 미존재 시 그냥 진행 | 빈 경로 읽고 위키 무시 | 없으면 1회 clone, 있으면 `pull --ff-only` |
+| 읽기 도구에 `$HOME`·`~` 그대로 전달 | 경로 못 찾음 | 셸로 홈을 푼 절대경로를 넘긴다 |
 
 ## 관련
 [[index]] · [[커밋 컨벤션]] · [[MR PR 작성 가이드]]
