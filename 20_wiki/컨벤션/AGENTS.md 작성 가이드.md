@@ -48,7 +48,7 @@ AGENTS.md에는 네 가지가 반드시 있어야 한다:
 
 1. **위키 실체 확보** (머신당 1회). 홈에 없으면 원격 `20_wiki/index.md`를 먼저 읽고 clone, 있으면 pull.
    ```bash
-   [ -d "$HOME/.llm-wiki/wiki" ] \
+   [ -d "$HOME/.llm-wiki/20_wiki" ] \
      && git -C "$HOME/.llm-wiki" pull --ff-only \
      || git clone https://github.com/jeong-hoi-seok/llm-wiki.git "$HOME/.llm-wiki"
    ```
