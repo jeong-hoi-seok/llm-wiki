@@ -167,7 +167,8 @@ LLM이 읽기 좋게 재구성한 지식층이다.
 5. `wiki/index.md` frontmatter의 `version`과 `updated`를 갱신한다.
 6. 해당 날짜의 `wiki/log/YYYY-MM-DD.md`에 이전 버전, 새 버전, bump 이유를 기록한다.
 7. `wiki/log.md` 날짜별 요약도 갱신한다.
-8. 버전 변경 커밋을 만든 뒤 `vX.Y.Z` 형식의 git tag와 GitHub Release를 생성한다.
+8. 버전 변경은 작업 브랜치 → PR로 머지한다(§Branch · PR). `main` 직접 커밋 금지.
+9. PR 머지로 `main`이 갱신된 뒤 `vX.Y.Z` 형식의 git tag와 GitHub Release를 생성한다.
 
 ### Commit
 
@@ -179,6 +180,16 @@ LLM이 읽기 좋게 재구성한 지식층이다.
 3. 커밋 컨벤션 문서가 있으면 그 문서를 최우선 기준으로 커밋 메시지를 작성한다.
 4. 커밋 컨벤션 문서를 찾지 못한 경우에만 일반 Conventional Commit 규칙을 사용한다.
 5. 커밋 전에 staged diff와 커밋 메시지가 컨벤션에 맞는지 확인한다.
+
+### Branch · PR (필수)
+
+`main`에 직접 커밋·push하지 않는다. 위키 변경은 항상 작업 브랜치 → PR로 반영한다.
+
+1. `main`에서 작업 브랜치를 만든다(`docs/...`, `feat/...` 등).
+2. 브랜치에 커밋([[커밋 컨벤션]])하고 push한다.
+3. PR을 연다 — [[MR PR 작성 가이드]]의 "위키 PR 템플릿"을 따른다.
+4. 버전 bump가 필요하면 `wiki/index.md`·로그 갱신도 같은 PR에 포함한다.
+5. PR 머지로 `main`이 갱신된 뒤에 tag·Release를 만든다([[위키 버전 관리]]).
 
 ### Lint
 
