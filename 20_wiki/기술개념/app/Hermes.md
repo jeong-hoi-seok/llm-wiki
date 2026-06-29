@@ -10,7 +10,7 @@ updated: 2026-06-25
 
 # Hermes
 
-> React Native용으로 만들어진 JavaScript 엔진. RN/Expo의 기본 엔진. 상위: [[index]] · 관련: [[React Native]] · [[Metro]] · [[New Architecture]]
+> React Native용으로 만들어진 JavaScript 엔진. RN/Expo의 기본 엔진. 상위: [[index]] · 관련: [[React Native]] · [[Metro]] · [[React Native#New Architecture]]
 
 ## TL;DR
 모바일에서 **앱 시작 속도·메모리·앱 크기**를 최적화하려고 Meta가 만든 경량 JS 엔진. JSC(JavaScriptCore) 대신 기본 채택. 핵심은 **빌드 시점 바이트코드 사전 컴파일(AOT)**.
