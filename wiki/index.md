@@ -1,7 +1,7 @@
 ---
 type: index
-version: "0.7.1"
-updated: 2026-06-26
+version: "0.8.0"
+updated: 2026-06-29
 ---
 
 # Index (목차)
