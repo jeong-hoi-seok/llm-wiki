@@ -189,7 +189,8 @@ LLM이 읽기 좋게 재구성한 지식층이다.
 2. 브랜치에 커밋([[커밋 컨벤션]])하고 push한다.
 3. PR을 연다 — [[MR PR 작성 가이드]]의 "위키 PR 템플릿"을 따른다.
 4. 버전 bump가 필요하면 `wiki/index.md`·로그 갱신도 같은 PR에 포함한다.
-5. PR 머지로 `main`이 갱신된 뒤에 tag·Release를 만든다([[위키 버전 관리]]).
+5. PR은 **반드시 squash merge**한다(`main` 이력 1커밋/PR 유지). merge·rebase 커밋 금지.
+6. PR 머지로 `main`이 갱신된 뒤에 tag·Release를 만든다([[위키 버전 관리]]).
 
 ### Lint
 

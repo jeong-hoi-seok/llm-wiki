@@ -84,10 +84,12 @@ target 브랜치: main
 ## 체크
 - [ ] index·log 갱신 (해당 시)
 - [ ] 링크 끊김 없음
+- [ ] squash merge ([[위키 버전 관리]])
 - [ ] 머지 후 tag·Release ([[위키 버전 관리]])
 ```
 
 제목은 `type(scope): subject`([[커밋 컨벤션]]). 버전 bump가 없으면 `버전` 섹션에 `none` 명시.
+머지는 **반드시 squash**(`main` 이력 1커밋/PR).
 
 ## 관련
 [[커밋 컨벤션]]
