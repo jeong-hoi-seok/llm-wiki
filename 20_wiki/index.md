@@ -1,6 +1,6 @@
 ---
 type: index
-version: "0.10.2"
+version: "0.10.3"
 updated: 2026-06-29
 ---
 
